@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ronnex e-Clinic</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    label, input, select, textarea {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Ronnex e-Clinic</h2>
+
+    <!-- Form to add a new patient -->
+    <form action="add_patient.php" method="POST">
+      <h3>Add New Patient</h3>
+      <label for="patient_name">Name:</label>
+      <input type="text" id="patient_name" name="patient_name" required>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="contact">Contact Number:</label>
+      <input type="tel" id="contact" name="contact">
+
+      <input type="submit" value="Add Patient">
+    </form>
+
+    <!-- Form to schedule an appointment -->
+    <form action="schedule_appointment.php" method="POST">
+      <h3>Schedule Appointment</h3>
+      <label for="patient_id">Patient:</label>
+      <select id="patient_id" name="patient_id" required>
+        <!-- Populate with patients from database -->
+        <option value="1">John Doe</option>
+        <option value="2">Jane Smith</option>
+        <!-- Add more options dynamically based on database -->
+      </select>
+
+      <label for="appointment_date">Appointment Date:</label>
+      <input type="date" id="appointment_date" name="appointment_date" required>
+
+      <label for="doctor">Doctor:</label>
+      <input type="text" id="doctor" name="doctor" required>
+
+      <input type="submit" value="Schedule Appointment">
+    </form>
+
+  </div>
+</body>
+</html>
